@@ -1,4 +1,23 @@
-﻿@{
+﻿@model IEnumerable<OnlineShop2022.Models.ProductModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<h1>Home Index</h1>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+            <img src="@product.ImagePath" class="card-img-top img-product-main" alt="@product.Description">
+                <div class="card-body">
+                    <h2 class="card-title text-dark">@product.Description</h2>
+                    <h6 class="card-title">£@product.Price</h6>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 

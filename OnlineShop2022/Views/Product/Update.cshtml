@@ -16,10 +16,11 @@
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
                 <input asp-for="Price" type="text" class="form-control" id="price" placeholder="Price" name="price">
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <span asp-validation-for="Price" class="text-danger"></span>s
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Product Image</label>
+                <img src="@Model.ImagePath" class="img-thumbnail image-product">
+                <input type="hidden" asp-for="ImagePath" />
                 <input class="form-control" asp-for="ImagePath" type="file" id="formFile">
             </div>
             <div class="mb-3">

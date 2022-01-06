@@ -1,5 +1,16 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+.img-product-main {
+    height: 40vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 !important;
+}
+
+.card {
+    border-radius: 0 !important;
+}
+
 .img-product {
     height: 20vh;
 }
