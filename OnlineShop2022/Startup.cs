@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShop2022.Data;
 using OnlineShop2022.Helpers;
+using OnlineShop2022.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,11 @@ namespace OnlineShop2022
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnectionString"));
             });
+
+            services.AddIdentity<CustomUserModel, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +59,8 @@ namespace OnlineShop2022
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -65,6 +74,7 @@ namespace OnlineShop2022
                     name: "product",
                     pattern: "{contoller=Product}/{action=Index}/{id?}");
 
+                endpoints.MapRazorPages();
            
             });
         }
