@@ -21,6 +21,11 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+#ProductImage {
+    width: 10vw;
+    height: 20vh;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
