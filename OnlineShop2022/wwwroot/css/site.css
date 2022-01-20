@@ -22,8 +22,8 @@ a.navbar-brand {
 }
 
 #ProductImage {
-    width: 10vw;
-    height: 20vh;
+    min-width: 10vw;
+    min-height: 20vh;
 }
 
 

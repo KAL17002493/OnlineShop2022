@@ -94,7 +94,7 @@ namespace OnlineShop2022.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole("Customer"));
                     }
 
-                    await _userManager.CreateAsync(user, "Customer");
+                    await _userManager.AddToRoleAsync(user, "Customer");
 
                     _logger.LogInformation("User created a new account with password.");
 

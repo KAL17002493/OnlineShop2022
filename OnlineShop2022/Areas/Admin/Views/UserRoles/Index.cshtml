@@ -4,3 +4,29 @@
 @{
     ViewData["Title"] = "User Manager";
 }
+
+<h1>User Roles Manager</h1>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>User ID</th>
+            <th>Firstname</th>
+            <th>Surname</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.User.Id</td>
+            <td>@user.User.FName</td>
+            <td>@user.User.SName</td>
+            <td>@string.Join(" , ", user.Roles.ToList())</td>
+            <td><a class=" btn btn-primary" asp-action="Manage">Manage Roles</a></td>
+            <td><a class=" btn btn-danger" asp-action="Delete" asp-route-id="@user.User.Id">Delete User</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
