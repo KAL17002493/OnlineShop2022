@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using OnlineShop2022.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineShop2022.Controllers
 {
+    [Authorize(Roles = "Manager, Admin")]
     public class ProductController : Controller
     {
         private readonly AppDbContext _db;

@@ -24,7 +24,7 @@
             <td>@user.User.FName</td>
             <td>@user.User.SName</td>
             <td>@string.Join(" , ", user.Roles.ToList())</td>
-            <td><a class=" btn btn-primary" asp-action="Manage">Manage Roles</a></td>
+            <td><a class=" btn btn-primary" asp-action="Manage" asp-route-id="@user.User.Id">Manage Roles</a></td>
             <td><a class=" btn btn-danger" asp-action="Delete" asp-route-id="@user.User.Id">Delete User</a></td>
         </tr>
         }

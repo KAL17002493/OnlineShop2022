@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace OnlineShop2022.Areas.Admin.Controllers
 {
-    //Tells the controller waht areas to use
+    //Only users with Manager and Admin roles can access this page
+    [Authorize (Roles = "Manager, Admin")]
+    //Tells the controller what areas to use
     [Area("Admin")]
 
     public class RolesManagerController : Controller
