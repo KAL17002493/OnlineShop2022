@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop2022.Models
 {
@@ -17,5 +18,13 @@ namespace OnlineShop2022.Models
         public double Price { get; set; }
 
         public string ImagePath { get; set; }
+
+        public string Colour { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public CategoryModel Category {get; set;}
     }
 }

@@ -1,4 +1,4 @@
-﻿@model OnlineShop2022.Models.ProductModel
+﻿@model OnlineShop2022.Models.ProductViewModel
 
 
 <h1>Create</h1>
@@ -9,17 +9,23 @@
         <div class="">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Product Description</label>
-                <input asp-for="Description" type="text" class="form-control" id="description" placeholder="Description" name="description">
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <input asp-for="Product.Description" type="text" class="form-control" id="description" placeholder="Description" name="description">
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input asp-for="Price" type="text" class="form-control" id="price" placeholder="Price" name="price">
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <input asp-for="Product.Price" type="text" class="form-control" id="price" placeholder="Price" name="price">
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
+
+            <div class="mb-3">
+                @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList (Model.Categories), "Select a category", new {@class = "form-select"})
+                <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+            </div>
+
             <div class="mb-3">
                 <label for="formFile" class="form-label">Product Image</label>
-                <input class="form-control" asp-for="ImagePath" type="file" id="formFile">
+                <input class="form-control" asp-for="Product.ImagePath" type="file" id="formFile">
             </div>
             <div class="mb-3">
                 <button class="btn btn-info" type="submit">Add Product</button>
