@@ -40,6 +40,29 @@ namespace OnlineShop2022.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "83e062a5-5e67-4916-b0ec-d0f864e5fcee",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "1f92139d-cc02-4c90-b288-91507390b938",
+                            ConcurrencyStamp = "1",
+                            Name = "Manager",
+                            NormalizedName = "Manager"
+                        },
+                        new
+                        {
+                            Id = "59853763-43e1-4d55-91fa-574cc71fc077",
+                            ConcurrencyStamp = "1",
+                            Name = "Customer",
+                            NormalizedName = "Customer"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -123,6 +146,23 @@ namespace OnlineShop2022.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "a4384d86-474c-4af6-aa0c-d472d9152c07",
+                            RoleId = "83e062a5-5e67-4916-b0ec-d0f864e5fcee"
+                        },
+                        new
+                        {
+                            UserId = "a4384d86-474c-4af6-aa0c-d472d9152c07",
+                            RoleId = "1f92139d-cc02-4c90-b288-91507390b938"
+                        },
+                        new
+                        {
+                            UserId = "a4384d86-474c-4af6-aa0c-d472d9152c07",
+                            RoleId = "59853763-43e1-4d55-91fa-574cc71fc077"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -229,6 +269,26 @@ namespace OnlineShop2022.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a4384d86-474c-4af6-aa0c-d472d9152c07",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "1",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = false,
+                            FName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ADMIN.COM",
+                            NormalizedUserName = "ADMIN@ADMIN.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH0FkppmDj175V+9EkPyODaOLw6I62p7BO5GL+FgTElvO90MEXTUr/Bh2RZMKXGstA==",
+                            PhoneNumberConfirmed = false,
+                            SName = "Admin",
+                            SecurityStamp = "bcb04325-e53b-4d21-b5f9-05cbf74b8c84",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com"
+                        });
                 });
 
             modelBuilder.Entity("OnlineShop2022.Models.ProductModel", b =>
